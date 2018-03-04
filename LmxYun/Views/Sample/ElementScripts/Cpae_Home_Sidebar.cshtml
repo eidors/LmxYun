@@ -1,0 +1,51 @@
+﻿<ul class="sidebarContent">
+    <li>
+        <div class="item-groupname">
+            <div class="icon icon-Option"></div>
+            <div class="item_name">Options</div>
+            <div class="status"></div>
+        </div>
+        <ul class="subitems">
+            <li class="item" id="renameStructure" onclick="javascript: renameStructure();">Rename this structure</li>
+            <li class="item" id="addEditGrades" onclick="javascript: addEditGrades();">Add/Remove Grade</li>
+            <li class="item" onclick="javascript: managePayMarkets();">Manage Pay Markets</li>
+            <li class="item" onclick="javascript: deleteStructure();">Delete Structure</li>
+            <li class="item" onclick="javascript: createInfo();">Creation Info (Structure)</li>
+            <li class="item-separator"></li>
+        </ul>
+    </li>
+    <li>
+        <div class="item-groupname">
+            <div class="icon icon-Manage"></div>
+            <div class="item_name">Manage</div>
+            <div class="status"></div>
+        </div>
+        <ul class="subitems">
+            <li class="item">Test content</li>
+            <li>
+                <div class="item-groupname">
+                    <div class="item_name">Add/Edit Grades</div>
+                    <div class="status collapse"></div>
+                </div>
+                <ul class="subitems">
+                    <li class="item">Add</li>
+                    <li class="item">Edit</li>
+                    <li class="item-separator"></li>
+                </ul>
+            </li>
+            <li class="item-separator"></li>
+        </ul>
+    </li>
+    <li>
+        <div class="item-groupname">
+            <div class="icon icon-Export"></div>
+            <div class="item_name">Export</div>
+            <div class="status"></div>
+        </div>
+        <ul class="subitems">
+            <li class="item" onclick="exportPDF">PDF</li>
+            <li class="item" onclick="exportExcel()">Excel</li>
+            <li class="item-separator"></li>
+        </ul>
+    </li>
+</ul>

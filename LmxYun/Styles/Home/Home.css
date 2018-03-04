@@ -1,0 +1,10 @@
+﻿body {
+}
+.single {
+    position: relative;
+    margin: 9px auto 0;
+    width: 84px;
+    height: 84px;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}

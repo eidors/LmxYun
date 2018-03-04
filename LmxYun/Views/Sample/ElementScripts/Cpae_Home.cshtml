@@ -1,0 +1,300 @@
+﻿@using SalaryCom.CompAnalyst.Cloud.Gadgets
+@using System.Data;
+@using SalaryCom.CompAnalyst.Cloud.Models;
+@using System.Collections;
+@{
+    /* In the Element page, what we need follow are below:
+     * 1. Do the page logic in the view file.
+     * 2. All the code need in a big try catch
+     * 3. After use a dataset, please use the gadget function to dispose it.
+     * 4. In the finally block, please dispose all the datasets used in the page again. 
+    */
+  }
+@{
+    ViewBag.Title = "Cpae_Home";
+    Cpag_Data SalCapg_Data = new Cpag_Data();
+    Cpag_Log SalCapg_Log = new Cpag_Log();
+    Cpag_Format SalCpag_Format = new Cpag_Format();
+}
+
+@{
+    Cpag_StringHandlering SalStr = new Cpag_StringHandlering();
+    string strTableauUrl = SalStr.SalGetTableauReportURL("Worldatworkdemo93/RPTPayforPerformance", "C990000004", "Publish");
+    <input type="hidden" id="tableauURL" value="@strTableauUrl" />
+}
+@{
+    // the dataset needed in the page
+    DataSet dstFormatResult1 = new DataSet();
+    DataSet dstDataForTestFormat = new DataSet();
+    DataSet dstFormatResult = new DataSet();
+   try{
+    <script language="javascript" src="https://tabdelta.salary.com/javascripts/api/tableau-2.js"></script>
+    <script src="~/UtilityScripts/highstock.js"></script>
+    <script src="~/UtilityScripts/Cpau_Home.js"></script>
+   
+    <!--This Section is for Branding CSS and Customer Header-->
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <H5><b>@ViewBag.LocalLabels["PageDesc"]</b></H5>
+                <a href="#" data-toggle="tooltip" title="Example tooltip">请悬停在我的上面</a>
+            </div>
+        </div>
+        <script>
+            $("[data-toggle='tooltip']").tooltip();
+        </script>
+        <div class="row">
+            <div class="col-xs-12">------------------------------------------------------</div>
+        </div>
+        <div class="row scrollbar-outer allen">
+            <div class="row">
+            <div class="col-xs-5">
+                <h3>@ViewBag.LocalLabels["Section1Desc1"]</h3>
+            </div>
+        </div>
+            <div class="row" style="padding-top:15px;">
+                <div class="col-xs-2"> @ViewBag.LocalLabels["Section1ChangeHeaderDesc"]</div>
+                <div class="col-xs-10">
+                    <button type="button" class="btn btn-default CAButtons" id="DefaultHeader">@ViewBag.LocalLabels["Section1DefaultHeader"]</button>
+                    <button type="button" class="btn btn-default CAButtons" id="PanterHeader">@ViewBag.LocalLabels["Section1PanterHeader"]</button>
+                </div>
+            </div>
+            <div class="row" style="padding-top:15px;">
+                <div class="col-xs-2">@ViewBag.LocalLabels["Section1ChangeStyleDesc"]</div>
+                <div class="col-xs-10">
+                    <button type="button" class="btn btn-default CAButtons" id="DefaultStyle">@ViewBag.LocalLabels["Section1DefaultStyle"]</button>
+                    <button type="button" class="btn btn-default CAButtons" id="CustomerStyle">@ViewBag.LocalLabels["Section1CustomerStyle"]</button>
+                </div>
+            </div>
+            <div class="row" style="padding-top:15px;">
+                <div class="col-xs-2">@ViewBag.LocalLabels["Section1ChangeInternationalDesc"]</div>
+                <div class="col-xs-10">
+                    <button type="button" class="btn btn-default CAButtons" id="DefaultInternational">@ViewBag.LocalLabels["Section1DefaultInternational"]</button>
+                    <button type="button" class="btn btn-default CAButtons" id="CustomerInternational">@ViewBag.LocalLabels["Section1CustomerInternational"]</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">------------------------------------------------------</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <h3>@ViewBag.LocalLabels["Section2Desc"]</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <button type="button" class="btn btn-primary btn-lg" id="divBigger" >
+                    @ViewBag.LocalLabels["ZoomIn"]
+                </button>
+                <button type="button" class="btn btn-primary btn-lg" id="divSmaller">
+                    @ViewBag.LocalLabels["ZoomOut"]
+                </button>
+                <div id="highchart-container"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">------------------------------------------------------</div>
+        </div>
+        <h3>@ViewBag.LocalLabels["Section3Desc"]</h3>
+        <div class="row clearfix" id="divTableaus">
+            <div class="col-md-4 column">
+                <h2>
+                    @ViewBag.LocalLabels["JobFamily"]        
+                </h2> 
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myTableauModal1">
+                         @ViewBag.LocalLabels["FullScreen"] 
+                </button>                 
+                <p>
+                    <iframe class="iframe" src="https://salarystaging10.salarynet.local/t/Publish/views/C990000004_Worldatworkdemo93/Widget3MarketDatabyFamily?:embed=y&:showShareOptions=true&:display_count=no&:showVizHome=no#3" width="800px" height="200px" scrolling="no" frameborder="0"> </iframe>
+                </p>
+         
+            </div>
+            <div class="col-md-4 column">
+                <h2>
+                    @ViewBag.LocalLabels["GenderPayAnalysis"]   
+                </h2>
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myTableauModal2">
+                         @ViewBag.LocalLabels["FullScreen"] 
+                </button>
+                <p>
+                    <iframe class="iframe" src="https://salarystaging10.salarynet.local/t/Publish/views/C990000004_EEO93/EEOGenderDash?:embed=y&:showShareOptions=true&:display_count=no&:showVizHome=no" width="800px" height="200px" scrolling="no" frameborder="0"> </iframe>
+                </p>
+    
+            </div>
+            <div class="col-md-4 column">
+                <h2>
+                    @ViewBag.LocalLabels["CAMDSimpleSearch"] 
+                </h2>
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myTableauModal3">
+                         @ViewBag.LocalLabels["FullScreen"] 
+                </button>
+                <p>
+                    <iframe class="iframe" src="https://salarystaging10.salarynet.local/t/Publish/views/C990000004_CAMDMobile93/DshSimpleCAMDSearch?:embed=y&:showShareOptions=true&:display_count=no&:showVizHome=no" width="800px" height="200px" scrolling="no" frameborder="0"> </iframe>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">------------------------------------------------------</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <h3>@ViewBag.LocalLabels["Section4Desc"]</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                @{
+                    #region Format DataSet test
+                    Cpam_Home objCpam_Home = new Cpam_Home();
+                    dstDataForTestFormat = objCpam_Home.SalGetDataForTestFormat();
+                
+                    Hashtable hshFieldFormat = new Hashtable();
+                    hshFieldFormat.Add("Price", Cpag_Format.FormatTypes.SalRound_1);
+                    hshFieldFormat.Add("OldPrice", Cpag_Format.FormatTypes.SalRound_2);
+                    hshFieldFormat.Add("PercentCol", Cpag_Format.FormatTypes.SalFormatPercent_2_false_true);
+                    hshFieldFormat.Add("DateTimeCol", Cpag_Format.FormatTypes.SalFormatDateTime_2);
+                    dstFormatResult1 = SalCpag_Format.SalFormatDataSet(dstDataForTestFormat, hshFieldFormat);
+                    #endregion
+                        dstFormatResult = dstFormatResult1;
+                        int intRowCount = dstFormatResult.Tables[0].Rows.Count;
+                        var arrCol = dstFormatResult.Tables[0].Columns;
+                        int intColCount = arrCol.Count;
+               
+                        <h4>@ViewBag.LocalLabels["FormatResult"]</h4>
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        @for (int i = 0; i < intColCount; i++)
+                                        {
+                                            <th>
+                                                @dstFormatResult.Tables[0].Columns[i].ColumnName
+                                            </th>
+                                        }
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @for (int i = 0; i < intRowCount; i++)
+                                    {
+                                        <tr>
+                                            @for (int j = 0; j < intColCount; j++)
+                                            {
+                                                <td>
+                                                    @dstFormatResult.Tables[0].Rows[i][j]
+                                                </td>
+                                            }
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <h4>@ViewBag.LocalLabels["FormatSettings"]</h4>
+                        <div class="table-responsive">
+
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        @for (int i = 0; i < dstFormatResult.Tables[1].Columns.Count; i++)
+                                        {
+                                            <th>
+                                                @dstFormatResult.Tables[1].Columns[i].ColumnName
+                                            </th>
+                                        }
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @for (int i = 0; i < dstFormatResult.Tables[1].Rows.Count; i++)
+                                    {
+                                        <tr>
+                                            @for (int j = 0; j < dstFormatResult.Tables[1].Columns.Count; j++)
+                                            {
+                                                <td>
+                                                    @dstFormatResult.Tables[1].Rows[i][j]
+                                                </td>
+                                            }
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        SalCapg_Data.SalCleanDataSet(dstFormatResult);
+                        SalCapg_Data.SalCleanDataSet(dstFormatResult1);
+                        SalCapg_Data.SalCleanDataSet(dstDataForTestFormat);
+                }
+            </div>
+        </div>
+    </div>
+    <!-- Tableau Modals -->
+    <div class="modal fade modal_wapper" id="myTableauModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">@ViewBag.LocalLabels["JobFamily"]   </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-item">
+                        <div class="form-body">                         
+                            <iframe class="iframe" src="https://salarystaging10.salarynet.local/t/Publish/views/C990000004_Worldatworkdemo93/Widget3MarketDatabyFamily?:embed=y&:showShareOptions=true&:display_count=no&:showVizHome=no#3" width="800px" height="200px" scrolling="no" frameborder="0"> </iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@ViewBag.LocalLabels["Close"]</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade modal_wapper" id="myTableauModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel"> @ViewBag.LocalLabels["GenderPayAnalysis"] </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-item">
+                        <div class="form-body">
+                            <iframe class="iframe" src="https://salarystaging10.salarynet.local/t/Publish/views/C990000004_EEO93/EEOGenderDash?:embed=y&:showShareOptions=true&:display_count=no&:showVizHome=no" width="800px" height="200px" scrolling="no" frameborder="0"> </iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@ViewBag.LocalLabels["Close"]</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade modal_wapper" id="myTableauModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel"> @ViewBag.LocalLabels["CAMDSimpleSearch"] </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-item">
+                        <div class="form-body">
+                            <iframe class="iframe" src="https://salarystaging10.salarynet.local/t/Publish/views/C990000004_CAMDMobile93/DshSimpleCAMDSearch?:embed=y&:showShareOptions=true&:display_count=no&:showVizHome=no" width="800px" height="200px" scrolling="no" frameborder="0"> </iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@ViewBag.LocalLabels["Close"]</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+catch{
+}
+finally
+{
+    SalCapg_Data.SalCleanDataSet(dstFormatResult);
+    SalCapg_Data.SalCleanDataSet(dstFormatResult1);
+    SalCapg_Data.SalCleanDataSet(dstDataForTestFormat);
+}
+}

@@ -1,0 +1,21 @@
+﻿@using System.Configuration
+@using SalaryCom.CompAnalyst.Cloud.Models;
+@{
+    Cpam_Header objHeader = new Cpam_Header();
+    switch (objHeader.strBrandingLevelCode)
+    {
+        case "PanterLevel":
+             @Html.Partial("~/Views/Border/ElementScripts/" + objHeader.strBrandingHeaderName)
+            break;
+        case "CustomerLevel":
+             @Html.Partial("~/Views/Border/ElementScripts/" + objHeader.strBrandingHeaderName)
+            break;
+        case "Sample":
+            @Html.Partial("~/Views/Border/ElementScripts/Cpae_BrandingHeader.cshtml")
+            break;
+        default:
+            @Html.Partial("~/Views/Border/ElementScripts/Cpae_Header.cshtml")
+            break;
+    }
+   
+}

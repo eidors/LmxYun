@@ -1,0 +1,26 @@
+﻿@using System.Configuration
+
+
+<script type="text/javascript" src="~/UtilityScripts/SideBar.js"></script>
+<script type="text/javascript" src="https://salarystaging10.salarynet.local/javascripts/api/tableau-2.js"></script>
+
+@{
+    /* In the Layout page, what we need follow are below:
+     * 1. Decide which view this page need. If the page don't need partial view. One layout will map one element file.
+     * 2. Include the js file or css file which only need in this page. 
+    */
+  }
+
+@RenderPage("~/Views/Sample/ElementScripts/Cpae_SamplePage.cshtml")
+
+<!--SideBar part: if current page has sidebar-->
+@section Sidebar {
+    @Html.Partial("~/Views/Sample/ElementScripts/Cpae_SamplePage_Sidebar.cshtml")
+}
+
+
+@helper Html_GetOneButton(string strRightText, string strjavaScript)
+{
+    <button type="button" class="btn btn-primary" onclick="@strjavaScript">@strRightText <strong></strong></button>
+
+}

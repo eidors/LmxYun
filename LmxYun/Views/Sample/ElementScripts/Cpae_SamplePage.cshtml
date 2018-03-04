@@ -1,0 +1,62 @@
+﻿@using SalaryCom.CompAnalyst.Cloud.Gadgets;
+@{
+    <!--define variable-->
+    Cpag_International objInternation = new Cpag_International();
+    Cpag_Log objLog = new Cpag_Log();
+}
+@try
+{
+
+    <div class="container-fluid">
+        <!--First part: Navigation-->
+        <div class="row">
+            <div class="col-md-12">
+                <ol class="breadcrumb">
+                    <li><a href="/companalyst/cloud/SalaryStructure/Cpal_StructurePlanSummary">@ViewBag.LocalLabels["RTXT_MANAGE_SALARY_STRUCTURES"]</a></li>
+                    <li class="active">@ViewBag.LocalLabels["RTXT_SALARY_STRUCTURE"]</li>
+                </ol>
+            </div>
+        </div>
+        <!--Page main content-->
+        <div class="row">
+            <div class="row page-title">
+                <div class="col-md-12">
+                    @ViewBag.LocalLabels["RTXT_PAGE_TITLE"]
+                </div>
+            </div>
+        </div>
+        <!--workflow steps-->
+        <div class="row">
+            <div class="workflow-steps col-md-6">
+                <div class="pull-left standard-text ca-margin-right-20px">
+                    <div class="ic-step1-green pull-left"></div>
+                    <div class="pull-left ic-step-text light-green-text">@ViewBag.LocalLabels["RTXT_STEP1"]</div>
+                </div>
+                <div class="pull-left standard-text ca-margin-right-20px">
+                    <div class="ic-step2-gray pull-left"></div>
+                    <div class="pull-left ic-step-text dark-blue-text">@ViewBag.LocalLabels["RTXT_STEP2"]</div>
+                </div>
+                <div class="pull-left standard-text">
+                    <div class="ic-step3-gray pull-left"></div>
+                    <div class="pull-left ic-step-text dark-blue-text">@ViewBag.LocalLabels["RTXT_STEP3"]</div>
+                </div>
+            </div>
+        </div>
+        <!--Bottom part-->
+        <div class="row ca-footer">
+            <div class="col-md-2">
+                <button type="button" class="btn btn-primary dark-blue-button">@ViewBag.LocalLabels["RTXT_SAVE"]</button>
+                <button type="button" class="btn btn-default dark-green-button">@ViewBag.LocalLabels["RTXT_CANCEL"]</button>
+            </div>
+        </div>
+    </div>
+    
+
+}
+catch (Exception ex)
+{
+    objLog.SalError("error", ex);
+}
+finally{
+
+}

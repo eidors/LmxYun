@@ -1,0 +1,233 @@
+﻿ul {
+    margin: 0;
+    padding: 0;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+.sidebar li {
+    margin:0;
+}
+
+.sidebar {
+    float: left;
+    overflow: hidden;
+    width: 215px;
+    background: #1a699f;
+    position: fixed;
+    top: 80px;
+    right:0px;
+}
+
+.sidebar .item,
+.sidebar .item-groupname {
+    float: left;
+    width: 100%;
+    min-height: 16px;
+    padding: 6px 3px;
+    border-bottom: solid #fff 1px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 11px;
+}
+
+.sidebar .item:hover,
+.sidebar .item-groupname:hover {
+    background-image: url('../Images/nu_submenu_over.png');
+}
+
+.sidebar .item-groupname {
+    position:relative;
+    padding: 0;
+}
+
+.sidebar .item-separator {
+    float:left;
+    width:100%;
+    height:20px;
+}
+
+.sidebar .border-top {
+    border-top: solid #fff 1px;
+}
+
+.sidebar .no-border-bottom {
+    border-bottom:none;
+}
+
+.sidebar .subitems {
+    margin-left: 30px;
+}
+
+.sidebar .item_name {
+    float: left;
+    min-height:16px;
+    padding: 7px 3px 6px;
+}
+
+.sidebar .status {
+	position: absolute;
+	width: 30px;
+	min-height: 30px;
+	right: 0px;
+	top: 0px;
+}
+
+.sidebar .selected
+{
+	background-image: url('../Images/sprite.png');
+	background-repeat: no-repeat;
+	background-position: 10px -180px;
+}
+
+.sidebar .collapse {
+    position:absolute;
+    top:4px;
+    right:30px;
+    width:20px;
+    height:20px;
+    background:url('../Images/sprite.png') 0 -185px;
+}
+.sidebar .expand {
+    position:absolute;
+    top:10px;
+    right:30px;
+    width:20px;
+    height:20px;
+    background:url('../Images/sprite.png') 0 -243px;
+}
+
+.icon {
+    float: left;
+    width: 30px;
+    height: 30px;
+}
+
+.icon-Option {
+    background: url('../Images/sprite.png') -292px -227px;
+}
+
+.icon-Save {
+    background: url('../Images/sprite.png') -341px -78px;
+}
+
+.icon-View {
+    background: url('../Images/jdb_sprite.png') -45px -75px;
+}
+
+.icon-AgeData {
+    background: url('../Images/sprite.png') -340px -380px;
+}
+
+.icon-Export {
+    background: url('../Images/jdb_sprite.png') 9px -28px;
+}
+
+.icon-Manage {
+    background: url('../Images/sprite.png') -291px -178px;
+}
+
+.icon-Search {
+    background: url('../Images/jdb_sprite.png') -143px -95px;
+}
+
+.icon-Match {
+    background: url('../Images/sprite.png') 7px -777px;
+}
+
+.icon-Help {
+    background: url('../Images/sprite.png') -291px -278px;
+}
+
+.icon-Results {
+    background: url('../Images/sprite.png') -340px -278px;
+}
+
+.icon-Add {
+    background: url('../Images/sprite.png') -340px -229px;
+}
+
+.icon-Format {
+    background: url('../Images/sprite.png') -239px -179px;
+}
+
+.icon-AdjustData {
+    background: url('../Images/sprite.png') -340px -178px;
+}
+
+.icon-Select {
+    background: url('../Images/sprite.png') -340px -130px;
+}
+
+.icon-JDB_Compare {
+    background: url('../Images/jdb_sprite.png') -46px -26px;
+}
+
+.icon-JDB_Library {
+    background: url('../Images/jdb_sprite.png') -42px -76px;
+}
+
+.icon-JDB_Quickref {
+    background: url('../Images/jdb_sprite.png') 8px -126px;
+}
+
+.icon-Remove {
+    background: url('../Images/sprite.png') 12px -631px;
+}
+
+.icon-recommendation_icon {
+    background: url('../Images/jdb_sprite.png') -94px -76px;
+}
+
+.pinButton {
+    position: relative;
+    height: 20px;
+    padding-top: 5px;
+    background-color: #E7EFF5;
+    line-height: 11px;
+    cursor: pointer;
+}
+
+.pinButton .open .words {
+    padding-left: 76%;
+    text-align: left;
+}
+
+.pinButton .open .icon {
+    position: absolute;
+    left: 93%;
+    width: 12px;
+    height: 10px;
+    background: url('../Images/jdb_sprite.png') -250px -100px no-repeat;
+    overflow: hidden;
+}
+
+.pinButton .sideBarClose .words {
+    left: 10px;
+    padding-left: 10%;
+}
+
+.pinButton .words {
+    position: absolute;
+    width: 100%;
+    font-size: 10px;
+    color: #5C8EAF;
+}
+
+.pinButton .words:hover {
+    text-decoration: underline;
+}
+
+.pinButton .sideBarClose .icon {
+    position: absolute;
+    left: 3%;
+    width: 12px;
+    height: 10px;
+    background: url('../Images/jdb_sprite.png') -200px -100px no-repeat;
+    overflow: hidden;
+}
+.hide {
+    display:none;
+}

@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "BrandingCss";
+}
+@using SalaryCom.CompAnalyst.Cloud.Models.Border
+@using SalaryCom.CompAnalyst.Cloud.Models
+@{
+    Cpam_BrandingCSS BrandingCSS = new Cpam_BrandingCSS();
+    string strBrandingCSS = BrandingCSS.SalGetBrandingStyle();
+}   
+@if (strBrandingCSS.Length > 0)
+{
+    <style type="text/css">
+        @strBrandingCSS
+    </style>
+}
+else{
+    <link rel="stylesheet" type="text/css" href="/CompAnalyst/UtilityScripts/Cpau_Default.css">
+}
